@@ -341,6 +341,50 @@ footer{background:var(--bg);padding:60px 60px 40px;border-top:1px solid rgba(201
   .process-steps{grid-template-columns:1fr}
   .ty-steps{flex-direction:column;align-items:center}
 }
+
+/* BLOG MODAL */
+.blog-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 600;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.blog-modal-overlay.open { display: flex; }
+.blog-modal {
+  background: var(--bg2); border: 1px solid rgba(201,168,76,0.2);
+  max-width: 720px; width: 100%; max-height: 85vh;
+  overflow-y: auto; position: relative; padding: 60px;
+  animation: modal-in .4s ease;
+}
+@keyframes modal-in { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+.modal-close {
+  position: absolute; top: 24px; left: 24px;
+  background: none; border: none; cursor: pointer;
+  font-family: 'Tajawal', sans-serif; font-size: 1rem; font-weight: 700;
+  color: var(--muted); transition: color .3s; display: flex; align-items: center; gap: 8px;
+}
+.modal-close:hover { color: var(--gold); }
+.modal-cat {
+  font-family: 'Tajawal', sans-serif; font-size: .85rem; font-weight: 700;
+  color: var(--gold); letter-spacing: .1em; margin-bottom: 16px; display: block;
+}
+.modal-title {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; line-height: 1.3; color: var(--white); margin-bottom: 12px;
+}
+body.light .modal-title { color: var(--text); }
+.modal-meta {
+  font-family: 'Tajawal', sans-serif; font-size: .8rem; font-weight: 700;
+  color: var(--muted); margin-bottom: 32px; padding-bottom: 32px;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.modal-body { font-size: .95rem; font-weight: 700; line-height: 2; color: var(--text2); }
+.modal-body h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--gold-l); margin: 32px 0 16px;
+}
+.modal-body p { margin-bottom: 20px; }
+.modal-body strong { color: var(--gold-l); }
+@media(max-width:600px) { .blog-modal { padding: 48px 24px; } }
 </style>
 </head>
 <body>
@@ -722,7 +766,7 @@ footer{background:var(--bg);padding:60px 60px 40px;border-top:1px solid rgba(201
       <p class="blog-excerpt">المشكلة ليست في الإنفاق — المشكلة في غياب الهندسة. اكتشف الفرق بين التواجد الرقمي والحضور الرقمي الحقيقي.</p>
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span class="blog-meta">٥ دقائق قراءة</span>
-        <span class="blog-read">اقرأ المقال <span>←</span></span>
+        <span class="blog-read" onclick="openBlog(1)" style="cursor:pointer">اقرأ المقال <span>←</span></span>
       </div>
     </div>
     <div class="blog-card reveal d1">
@@ -731,7 +775,7 @@ footer{background:var(--bg);padding:60px 60px 40px;border-top:1px solid rgba(201
       <p class="blog-excerpt">في عصر الثقة الرقمية، الناس يتابعون أشخاصاً لا شعارات. دليلك الكامل لبناء علامة شخصية لا تُنسى.</p>
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span class="blog-meta">٧ دقائق قراءة</span>
-        <span class="blog-read">اقرأ المقال <span>←</span></span>
+        <span class="blog-read" onclick="openBlog(2)" style="cursor:pointer">اقرأ المقال <span>←</span></span>
       </div>
     </div>
     <div class="blog-card reveal d2">
@@ -740,7 +784,7 @@ footer{background:var(--bg);padding:60px 60px 40px;border-top:1px solid rgba(201
       <p class="blog-excerpt">الفرق ليس في السعر — إنه في القرارات التصميمية الصغيرة التي تُراكم هيبة لا تُشترى.</p>
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span class="blog-meta">٦ دقائق قراءة</span>
-        <span class="blog-read">اقرأ المقال <span>←</span></span>
+        <span class="blog-read" onclick="openBlog(3)" style="cursor:pointer">اقرأ المقال <span>←</span></span>
       </div>
     </div>
   </div>
@@ -892,6 +936,94 @@ cForm.addEventListener('submit',async e=>{
     }else{btn.textContent='حدث خطأ، حاول مجدداً';btn.disabled=false;}
   }catch{btn.textContent='حدث خطأ، حاول مجدداً';btn.disabled=false;}
 });
+
+// BLOG DATA
+const blogs = {
+  1: {
+    cat: 'استراتيجية رقمية',
+    title: 'لماذا معظم العلامات التجارية تُخفق رقمياً رغم الميزانيات الضخمة؟',
+    meta: '٥ دقائق قراءة · Aura Media Group',
+    body: `
+      <p>في كل أسبوع، نلتقي بأصحاب علامات تجارية أنفقوا آلاف الدولارات على إعلانات، تصاميم، ومحتوى — لكن النتيجة كانت الصمت الرقمي.</p>
+      <p>المشكلة لم تكن في الميزانية أبداً. كانت في <strong>غياب الهندسة.</strong></p>
+      <h3>الفرق بين التواجد والحضور</h3>
+      <p>التواجد الرقمي يعني أنك موجود — حساب هنا، موقع هناك، منشور بين حين وآخر. الحضور الرقمي يعني أنك <strong>تُشعَر به</strong> حتى حين تصمت.</p>
+      <p>العلامات التي تُهاب رقمياً لا تنفق أكثر — تُفكّر بشكل مختلف. هي تبني نظاماً متكاملاً لا مجرد قطع متفرقة.</p>
+      <h3>الأخطاء الثلاثة الأكثر شيوعاً</h3>
+      <p><strong>١. البداية من التصميم لا من الاستراتيجية:</strong> الشعار الجميل لا يبني علامة — الرسالة الواضحة هي من تفعل ذلك.</p>
+      <p><strong>٢. مطاردة الترند بدل بناء الهوية:</strong> كل موجة تنتهي. الهوية الراسخة تبقى.</p>
+      <p><strong>٣. قياس الكم لا الأثر:</strong> ألف متابع من جمهورك الحقيقي يساوي مليوناً من غيره.</p>
+      <h3>الحل؟ ابدأ بالهندسة</h3>
+      <p>قبل أن تنفق دولاراً واحداً على إعلان، اسأل نفسك: هل علامتي واضحة؟ هل رسالتي محددة؟ هل تجربة عميلي متسقة؟</p>
+      <p>إذا كان الجواب لا — فأنت لا تحتاج ميزانية أكبر. تحتاج <strong>هندسة أذكى.</strong></p>
+    `
+  },
+  2: {
+    cat: 'Personal Branding',
+    title: 'العلامة الشخصية: كيف تجعل اسمك يُذكر قبل شركتك؟',
+    meta: '٧ دقائق قراءة · Aura Media Group',
+    body: `
+      <p>حين يحتاج شخص ما خدمة في مجالك — من يتبادر إلى ذهنه أولاً؟ إذا لم يكن اسمك، فهذا المقال لك.</p>
+      <h3>لماذا الاسم أقوى من الشعار؟</h3>
+      <p>الناس لا يثقون في شركات — يثقون في أشخاص. حين تبني علامة شخصية قوية، أنت تبني <strong>جسر ثقة مباشر</strong> مع جمهورك لا يمكن لأي منافس نسخه.</p>
+      <p>Jeff Bezos قال: "علامتك الشخصية هي ما يقوله الناس عنك حين تغادر الغرفة." السؤال: ماذا يقولون؟</p>
+      <h3>ركائز العلامة الشخصية القوية</h3>
+      <p><strong>١. زاوية النظر الفريدة (POV):</strong> ما الذي تراه في مجالك بشكل مختلف عن الجميع؟ هذا هو بذرة علامتك.</p>
+      <p><strong>٢. الاتساق لا الكمال:</strong> الظهور المنتظم يبني الثقة أكثر من المنشور المثالي كل شهر.</p>
+      <p><strong>٣. القصة قبل المعلومة:</strong> الناس لا يتذكرون الأرقام — يتذكرون القصص والمواقف.</p>
+      <h3>من أين تبدأ؟</h3>
+      <p>اسأل نفسك: ما المشكلة التي أحلها أفضل من أي شخص آخر؟ ابنِ كل محتواك حول هذه الإجابة، وستجد أن جمهورك يجدك — لا أنت تبحث عنه.</p>
+    `
+  },
+  3: {
+    cat: 'براندينغ فاخر',
+    title: 'الفخامة الرقمية: ما الذي يجعل علامة ما تبدو بمليون وأخرى بألف؟',
+    meta: '٦ دقائق قراءة · Aura Media Group',
+    body: `
+      <p>فتحت موقعين في نفس اللحظة. الأول جعلك تشعر أنك تتصفح متجر راقٍ في دبي. الثاني شعرت أنك في سوق شعبي مزدحم. نفس الخدمة، نفس السعر — لكن التجربة مختلفة تماماً.</p>
+      <p>ما الذي صنع هذا الفرق؟</p>
+      <h3>الفراغ يتكلم</h3>
+      <p>العلامات الفاخرة لا تخاف المساحات الفارغة — تحتفي بها. كل مساحة بيضاء هي نَفَس يأخذه المتصفح قبل أن يستوعب رسالتك. <strong>الازدحام البصري = الرخص البصري.</strong></p>
+      <h3>الخط الواحد أقوى من العشرة</h3>
+      <p>العلامات التي تُهاب تختار خطاً واحداً وتتقنه. التنوع الزائد في الخطوط والألوان يُشتت ويُضعف — البساطة المقصودة هي الفخامة الحقيقية.</p>
+      <h3>الصوت قبل الصورة</h3>
+      <p>أكثر ما يُفرّق علامة فاخرة عن غيرها هو <strong>كيف تتكلم</strong> لا كيف تبدو. النبرة الواثقة، الكلمات المنتقاة، الجمل القصيرة الحادة — هذا ما يجعل العميل يشعر أنه أمام شيء استثنائي.</p>
+      <h3>الخلاصة</h3>
+      <p>الفخامة الرقمية ليست سعراً — إنها مجموع قرارات صغيرة صحيحة تتراكم لتبني شعوراً لا يُنسى. وهذا بالضبط ما نفعله في Aura.</p>
+    `
+  }
+};
+
+function openBlog(id) {
+  const b = blogs[id];
+  document.getElementById('bCat').textContent = b.cat;
+  document.getElementById('bTitle').textContent = b.title;
+  document.getElementById('bMeta').textContent = b.meta;
+  document.getElementById('bBody').innerHTML = b.body;
+  document.getElementById('bModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBlog(e) {
+  if (e.target === document.getElementById('bModal')) closeBlogBtn();
+}
+function closeBlogBtn() {
+  document.getElementById('bModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBlogBtn(); });
+
 </script>
+
+<!-- BLOG MODALS -->
+<div class="blog-modal-overlay" id="bModal" onclick="closeBlog(event)">
+  <div class="blog-modal" id="bModalBox">
+    <button class="modal-close" onclick="closeBlogBtn()">→ إغلاق</button>
+    <span class="modal-cat" id="bCat"></span>
+    <h2 class="modal-title" id="bTitle"></h2>
+    <div class="modal-meta" id="bMeta"></div>
+    <div class="modal-body" id="bBody"></div>
+  </div>
+</div>
+
 </body>
 </html>
