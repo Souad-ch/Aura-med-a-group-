@@ -9,7 +9,7 @@ body.subpage{cursor:auto;padding-top:84px}
 .subnav{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;align-items:center;justify-content:space-between;
   padding:18px 6vw;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.14)}
 .subnav .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.subnav .brand img{height:38px;width:auto;border-radius:7px;border:1px solid rgba(201,168,76,.2)}
+.subnav .brand img{width:40px;height:40px}
 .subnav .brand b{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;letter-spacing:.18em;color:var(--gold);line-height:1}
 .subnav .brand small{display:block;font-size:.52rem;letter-spacing:.34em;color:var(--silver);margin-top:3px}
 .subnav nav{display:flex;gap:30px}
