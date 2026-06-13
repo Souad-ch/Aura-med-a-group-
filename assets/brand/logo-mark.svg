@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aura Media Group">
+  <defs>
+    <linearGradient id="auraGold" x1="20" y1="14" x2="100" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2C97E"/>
+      <stop offset="0.5" stop-color="#C9A84C"/>
+      <stop offset="1" stop-color="#F0DFA0"/>
+    </linearGradient>
+  </defs>
+  <!-- aura ring -->
+  <circle cx="60" cy="60" r="50" stroke="url(#auraGold)" stroke-width="1.4" opacity="0.55"/>
+  <circle cx="60" cy="60" r="44" stroke="url(#auraGold)" stroke-width="0.7" opacity="0.3"/>
+  <!-- monogram A -->
+  <path d="M60 34 L80 86 M60 34 L40 86 M48 71 L72 71"
+        stroke="url(#auraGold)" stroke-width="3.2"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- spark accent -->
+  <path d="M60 16 L62 24 L70 26 L62 28 L60 36 L58 28 L50 26 L58 24 Z" fill="url(#auraGold)"/>
+</svg>

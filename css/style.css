@@ -185,7 +185,7 @@ body.light .faq-title{color:var(--text)}
 /* PORTFOLIO */
 #portfolio{background:var(--bg3);padding:120px 60px;transition:background .5s}
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:64px}
-.port-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:var(--bg2)}
+.port-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:var(--bg2);display:block;text-decoration:none}
 .port-item .port-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .5s ease}
 .port-item:hover .port-bg{transform:scale(1.05)}
 .port-label{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:rgba(201,168,76,.15);letter-spacing:.2em}
@@ -249,7 +249,7 @@ body.light .p-txt{color:var(--text)}
 body.light .blog-title{color:var(--text)}
 .blog-excerpt{font-size:.88rem;font-weight:700;color:var(--muted);line-height:1.8;margin-bottom:24px}
 .blog-meta{font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:var(--faint)}
-.blog-read{display:inline-flex;align-items:center;gap:8px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;color:var(--gold);transition:gap .3s}
+.blog-read{display:inline-flex;align-items:center;gap:8px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;color:var(--gold);transition:gap .3s;text-decoration:none;cursor:pointer}
 .blog-read:hover{gap:14px}
 
 /* CTA */
