@@ -43,6 +43,16 @@ new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.targ
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 revEls.forEach(el=>io.observe(el));
 
+// ABOUT LOGO — يعيد رسم نفسه عند الظهور في الشاشة
+const aboutLogo=document.getElementById('aboutLogo');
+if(aboutLogo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const base=aboutLogo.getAttribute('src').split('?')[0];
+  const lio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting) aboutLogo.src=base+'?r='+Date.now();  // إعادة تحميل خفيفة تُعيد تشغيل الأنيميشن
+  }),{threshold:.4});
+  lio.observe(aboutLogo);
+}
+
 // PARTICLES (تُعطَّل عند تفضيل تقليل الحركة)
 const pc=document.getElementById('ptcl');
 if(pc && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
