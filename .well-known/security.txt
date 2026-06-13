@@ -1,0 +1,4 @@
+Contact: mailto:security@auramediagroup.com
+Preferred-Languages: ar, en
+Canonical: https://auramediagroup.com/.well-known/security.txt
+Expires: 2027-06-13T00:00:00.000Z

@@ -373,3 +373,14 @@ body.light .modal-title { color: var(--text); }
 .modal-body p { margin-bottom: 20px; }
 .modal-body strong { color: var(--gold-l); }
 @media(max-width:600px) { .blog-modal { padding: 48px 24px; } }
+
+/* ===== الإتاحة (Accessibility) ===== */
+.skip-link{position:absolute;right:-9999px;top:0;z-index:99999;background:var(--gold);color:#0a0a0a;
+  padding:12px 22px;border-radius:0 0 10px 0;font-weight:800;text-decoration:none}
+.skip-link:focus{right:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .cur,.cur-r,.particles,#ptcl{display:none!important}
+}

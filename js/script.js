@@ -43,9 +43,11 @@ new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.targ
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 revEls.forEach(el=>io.observe(el));
 
-// PARTICLES
+// PARTICLES (تُعطَّل عند تفضيل تقليل الحركة)
 const pc=document.getElementById('ptcl');
-for(let i=0;i<25;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*2+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*8}s;`;pc.appendChild(p);}
+if(pc && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  for(let i=0;i<25;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*2+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*8}s;`;pc.appendChild(p);}
+}
 
 // FORM
 const cForm=document.getElementById('cForm');

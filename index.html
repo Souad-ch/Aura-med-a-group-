@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="manifest" href="manifest.webmanifest">
 <title>Aura Media Group — هندسة الهيبة الرقمية</title>
 <meta name="description" content="Aura Media Group — نهندس الهيبة الرقمية للعلامات التي ترفض الاندماج في الضجيج. وكالة تسويق رقمي فاخرة متخصصة في البراندينغ والمحتوى.">
 <meta name="keywords" content="وكالة تسويق رقمي احترافية, بناء الهوية البصرية, استراتيجية تسويق رقمي, بناء العلامة الشخصية, برندينغ فاخر, وكالة برندينغ">
@@ -55,6 +58,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<a href="#home" class="skip-link">تخطَّ إلى المحتوى</a>
 
 <div class="cur" id="cur"></div>
 <div class="cur-r" id="curR"></div>
@@ -369,6 +373,7 @@
       <input type="hidden" name="access_key" value="d9ecce96-bcc0-42b9-969d-4225a3da8ad8">
       <input type="hidden" name="subject" value="طلب جديد من موقع Aura Media Group">
       <input type="hidden" name="redirect" value="false">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="fg"><input type="text" name="name" placeholder="الاسم الكريم" required></div>
       <div class="fg"><input type="email" name="email" placeholder="البريد الإلكتروني" required></div>
       <div class="fg">
@@ -415,10 +420,10 @@
     </div>
   </div>
   <div class="foot-bottom">
-    <p>© 2025 Aura Media Group · جميع الحقوق محفوظة</p>
+    <p>© 2026 Aura Media Group · جميع الحقوق محفوظة · <a href="legal/privacy.html">سياسة الخصوصية</a> · <a href="legal/terms.html">شروط الاستخدام</a></p>
     <div class="soc-links">
       <a href="#">Instagram</a>
-      <a href="https://wa.me/message/JSA24DL5WBQ6A1" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/message/JSA24DL5WBQ6A1" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </div>
 </footer>
