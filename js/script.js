@@ -1,13 +1,13 @@
-// LOADER — يختفي فور تحميل الصفحة (بحد أقصى قصير لإظهار الأنيميشن)
+// LOADER — يُظهر أنيميشن اللوغو ثم يختفي (المحتوى محمّل خلفه أصلاً)
 function hideLoader(){
   const l=document.getElementById('loader');
   if(!l||l.classList.contains('hide'))return;
   l.classList.add('hide');
   setTimeout(()=>l.style.display='none',800);
 }
-window.addEventListener('load',()=>setTimeout(hideLoader,600));
-// شبكة أمان: لا تعلّق الصفحة أبداً خلف اللودر
-setTimeout(hideLoader,2500);
+const _reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// مهلة كافية لرسم اللوغو (تُختصر عند تفضيل تقليل الحركة)
+setTimeout(hideLoader,_reduced?300:2400);
 
 // CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
