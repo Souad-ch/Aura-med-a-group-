@@ -390,3 +390,48 @@ body.light .modal-title { color: var(--text); }
     transition-duration:.001ms!important;scroll-behavior:auto!important}
   .cur,.cur-r,.particles,#ptcl{display:none!important}
 }
+
+/* ===== تحسينات الموبايل الشاملة ===== */
+@media(max-width:600px){
+  section{padding:64px 18px}
+  #about-teaser,#portfolio,#testimonials,#process,#about,#blog,#cta,#partners,#services{padding:64px 18px}
+  /* الهيرو */
+  .hero-content{padding:0 18px}
+  .hero-hl{font-size:clamp(2.1rem,8.5vw,3rem);margin-bottom:24px}
+  .hero-sub{font-size:.95rem;margin-bottom:40px}
+  .btn,.btn-gold{padding:15px 30px;font-size:.92rem;gap:10px}
+  /* العناوين */
+  .sec-title{font-size:clamp(1.85rem,7.5vw,2.6rem)}
+  .eyebrow{margin-bottom:18px;font-size:.92rem}
+  /* كروت الخدمات */
+  .services-intro{margin-bottom:44px}
+  .s-card{padding:36px 22px}
+  .s-num{font-size:3.4rem;margin-bottom:-10px}
+  .s-name{font-size:1.7rem}
+  .s-desc{margin-bottom:24px}
+  .s-items{margin-bottom:4px}
+  .bespoke-badge{top:16px;left:16px;font-size:.74rem;padding:5px 12px}
+  /* عن الوكالة */
+  .about-text p{font-size:.96rem}
+  .about-manifesto{font-size:clamp(1.3rem,5.5vw,1.9rem);margin-bottom:40px}
+  .about-closing{font-size:1.08rem;margin-bottom:36px}
+  .pillar{padding:26px 0}
+  /* الأعمال / الآراء / المدونة */
+  .test-card{padding:30px 22px}
+  .blog-card{padding:30px 22px}
+  .blog-title{font-size:1.2rem}
+  /* CTA */
+  .cta-title{font-size:clamp(2rem,7.5vw,2.8rem);margin-bottom:20px}
+  .cta-sub{margin-bottom:40px}
+  .contact-form{gap:14px}
+  /* الفوتر */
+  footer{padding:54px 20px 36px}
+  .foot-bottom p{font-size:.78rem;line-height:1.9}
+}
+@media(max-width:380px){
+  section{padding:56px 15px}
+  .s-card{padding:30px 18px}
+  .hero-hl{font-size:clamp(1.95rem,9vw,2.4rem)}
+  .btn,.btn-gold{padding:14px 24px;font-size:.88rem}
+  .test-card,.blog-card{padding:26px 18px}
+}
